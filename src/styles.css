@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 50px;
+  font-family: 'Righteous', cursive;
+  background-color: #79abcd;
+  font-size: 30px;
+  color: #f9f9f9;
+  text-align: center;
+  text-shadow: 1px 1px 2px black;
+  background-image: url('./images/map.jpg');
+  background-size: cover;
+}
+
+.input-search {
+  padding-left: 15px;
+  padding-right: 10px;
+  height: 40px;
+  width: 350px;
+  border-radius: 20px;
+  border: transparent;
+
+  font-size: 20px;
+}
