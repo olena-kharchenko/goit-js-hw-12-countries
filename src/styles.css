@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  padding: 50px;
+  padding: 50px 20px 20px 20px;
   font-family: 'Righteous', cursive;
   background-color: #79abcd;
   font-size: 30px;
@@ -21,7 +21,7 @@ body {
   padding-left: 15px;
   padding-right: 10px;
   height: 40px;
-  width: 350px;
+  min-width: 300px;
   border-radius: 20px;
   border: transparent;
 
