@@ -29,25 +29,49 @@ function onSearch() {
 
 function checkingNumberOfCountries(countries) {
   if (countries.length > 10) {
-    error({
-      title: 'Too many matches found.',
-      text: 'Please enter a more specific query!',
-      delay: 2000,
-      closerHover: true,
-    });
+    clearMarkup();
+    tooManyCountries();
   } else if (countries.length <= 10 && countries.length > 1) {
+    clearMarkup();
     renderMarkup(listOfContriesTpl, countries);
-  } else {
+  } else if (countries.length === 1) {
+    clearMarkup();
     renderMarkup(countryCardTpl, countries[0]);
+  } else {
+    clearMarkup();
+    noResult();
   }
 }
 
 function renderMarkup(template, countries) {
   const markup = template(countries);
-  cardContainer.innerHTML = markup;
+  cardContainer.insertAdjacentHTML('beforeend', markup);
+}
+
+function clearMarkup() {
+  cardContainer.innerHTML = '';
+}
+
+function noResult() {
+  info({
+    title: 'Uh Oh!',
+    text: 'No matches found!',
+    delay: 1500,
+    closerHover: true,
+  });
+}
+
+function tooManyCountries() {
+  error({
+    title: 'Uh Oh!',
+    text: 'Too many matches found. Please enter a more specific query!',
+    delay: 2500,
+    closerHover: true,
+  });
 }
 
 function onFetchError(error) {
-  cardContainer.innerHTML = '';
+  clearMarkup();
+
   console.log(error);
 }
