@@ -1,4 +1,4 @@
-var debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 import API from './fetchCountries.js';
 import listOfContriesTpl from '../templates/list-of-countries.hbs';
 import countryCardTpl from '../templates/country-markup.hbs';
@@ -21,6 +21,11 @@ inputEl.addEventListener(
 function onSearch() {
   countryToSearch = inputEl.value;
   console.log(countryToSearch);
+
+  if (!countryToSearch) {
+    clearMarkup();
+    return;
+  }
 
   API.fetchCountries(countryToSearch)
     .then(checkingNumberOfCountries)
